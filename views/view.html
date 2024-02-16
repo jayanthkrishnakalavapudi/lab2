@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Contact Details</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      padding: 80px 0;
+    }
+    .contact-details-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+    .contact-details-card h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .contact-details-card p {
+      font-size: 16px;
+      color: #555;
+    }
+    .contact-details-card p strong {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="contact-details-card">
+          <h1>Contact Details</h1>
+          <div id="contactDetails">
+                     </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Render contact details
+    function renderContactDetails(contact) {
+      return `
+        <p><strong>First Name:</strong> ${contact.firstName}</p>
+        <p><strong>Last Name:</strong> ${contact.lastName}</p>
+        <p><strong>Email:</strong> ${contact.email}</p>
+        <p><strong>Notes:</strong> ${contact.notes}</p>
+      `;
+    }
+
+    // Fetch contact details
+    fetch('/contactsData') 
+      .then(response => response.json())
+      .then(contacts => {
+        const contactId = window.location.pathname.split('/').pop();
+        const contact = contacts.find(contact => contact.id === contactId);
+        if (contact) {
+          document.getElementById('contactDetails').innerHTML = renderContactDetails(contact);
+        } else {
+          document.getElementById('contactDetails').innerHTML = '<p>Contact not found</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching contacts:', error);
+        document.getElementById('contactDetails').innerHTML = '<p>Error fetching contact details</p>';
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "2",
+    "firstName": "Ishaan",
+    "lastName": "Sharma",
+    "email": "ishaan.sharma@contactappdb.com",
+    "notes": "Ishaan is a business analyst specializing in market research."
+  },
+  {
+    "id": "3",
+    "firstName": "Aanya",
+    "lastName": "Reddy",
+    "email": "aanya.reddy@contactappdb.com",
+    "notes": "Aanya is a marketing professional with expertise in digital advertising."
+  },
+  {
+    "id": "4",
+    "firstName": "Kiran",
+    "lastName": "Singh",
+    "email": "kiran.singh@contactappdb.com",
+    "notes": "Kiran is an aspiring entrepreneur with a focus on e-commerce."
+  },
+  {
+    "id": "5",
+    "firstName": "Aditi",
+    "lastName": "Gupta",
+    "email": "aditi.gupta@contactappdb.com",
+    "notes": "Aditi is a software developer passionate about web development."
+  },
+  {
+    "id": "6",
+    "firstName": "Vivek",
+    "lastName": "Kumar",
+    "email": "vivek.kumar@contactappdb.com",
+    "notes": "Vivek is a data analyst with expertise in predictive modeling."
+  },
+  {
+    "id": "7",
+    "firstName": "Neha",
+    "lastName": "Malhotra",
+    "email": "neha.malhotra@contactappdb.com",
+    "notes": "Neha is a UI/UX designer with a focus on user-centered design principles."
+  },
+  {
+    "id": "8",
+    "firstName": "Arjun",
+    "lastName": "Rao",
+    "email": "arjun.rao@contactappdb.com",
+    "notes": "Arjun is a financial analyst experienced in risk management."
+  },
+  {
+    "id": "9",
+    "firstName": "Maya",
+    "lastName": "Krishnan",
+    "email": "maya.krishnan@contactappdb.com",
+    "notes": "Maya is a project manager with a track record of successful product launches."
+  },
+  {
+    "id": "10",
+    "firstName": "Rohan",
+    "lastName": "Desai",
+    "email": "rohan.desai@contactappdb.com",
+    "notes": "Rohan is a software architect specializing in scalable cloud solutions."
+  },
+  {
+    "id": "11",
+    "firstName": "Anaya",
+    "lastName": "Shah",
+    "email": "anaya.shah@contactappdb.com",
+    "notes": "Anaya is a social media strategist with expertise in influencer marketing."
+  },
+  {
+    "id": "12",
+    "firstName": "Aarush",
+    "lastName": "Chopra",
+    "email": "aarush.chopra@contactappdb.com",
+    "notes": "Aarush is a content creator specializing in video production."
+  },
+  {
+    "id": "13",
+    "firstName": "Zara",
+    "lastName": "Singhania",
+    "email": "zara.singhania@contactappdb.com",
+    "notes": "Zara is a fashion designer known for her innovative designs."
+  },
+  {
+    "id": "14",
+    "firstName": "Rishi",
+    "lastName": "Doshi",
+    "email": "rishi.doshi@contactappdb.com",
+    "notes": "Rishi is a product manager with experience in agile development."
+  },
+  {
+    "id": "15",
+    "firstName": "Sanya",
+    "lastName": "Mehta",
+    "email": "sanya.mehta@contactappdb.com",
+    "notes": "Sanya is a digital marketing specialist focusing on SEO strategies."
+  },
+  {
+    "id": "16",
+    "firstName": "Vivaan",
+    "lastName": "Agarwal",
+    "email": "vivaan.agarwal@contactappdb.com",
+    "notes": "Vivaan is a cybersecurity analyst with expertise in threat detection."
+  },
+  {
+    "id": "17",
+    "firstName": "Aaditya",
+    "lastName": "Sinha",
+    "email": "aaditya.sinha@contactappdb.com",
+    "notes": "Aaditya is a data scientist specializing in natural language processing."
+  },
+  {
+    "id": "18",
+    "firstName": "Shreya",
+    "lastName": "Rajput",
+    "email": "shreya.rajput@contactappdb.com",
+    "notes": "Shreya is a UX researcher passionate about usability testing."
+  },
+  {
+    "id": "19",
+    "firstName": "Riya",
+    "lastName": "Srivastava",
+    "email": "riya.srivastava@contactappdb.com",
+    "notes": "Riya is a software quality assurance engineer focused on automation testing."
+  },
+  {
+    "id": "20",
+    "firstName": "Aryan",
+    "lastName": "Jain",
+    "email": "aryan.jain@contactappdb.com",
+    "notes": "Aryan is a web designer with a knack for creative web layouts."
+  },
+  {
+    "id": "21",
+    "firstName": "Anika",
+    "lastName": "Malik",
+    "email": "anika.malik@contactappdb.com",
+    "notes": "Anika is a content strategist specializing in brand storytelling."
+  },
+  {
+    "id": "22",
+    "firstName": "Dev",
+    "lastName": "Gandhi",
+    "email": "dev.gandhi@contactappdb.com",
+    "notes": "Dev is a software engineer passionate about open-source projects."
+  },
+  {
+    "id": "23",
+    "firstName": "Avni",
+    "lastName": "Nair",
+    "email": "avni.nair@contactappdb.com",
+    "notes": "Avni is a digital content creator known for her engaging social media posts."
+  },
+  {
+    "id": "24",
+    "firstName": "Rehan",
+    "lastName": "Kapoor",
+    "email": "rehan.kapoor@contactappdb.com",
+    "notes": "Rehan is a mobile app developer specializing in iOS development."
+  },
+  {
+    "id": "25",
+    "firstName": "Ishika",
+    "lastName": "Bhatia",
+    "email": "ishika.bhatia@contactappdb.com",
+    "notes": "Ishika is a data analyst with a focus on business intelligence."
+  },
+  {
+    "id": "26",
+    "firstName": "Arnav",
+    "lastName": "Verma",
+    "email": "arnav.verma@contactappdb.com",
+    "notes": "Arnav is a software architect experienced in microservices architecture."
+  },
+  {
+    "id": "27",
+    "firstName": "Tanvi",
+    "lastName": "Chaudhary",
+    "email": "tanvi.chaudhary@contactappdb.com",
+    "notes": "Tanvi is a UX/UI designer with expertise in wireframing and prototyping."
+  },
+  {
+    "id": "28",
+    "firstName": "Yash",
+    "lastName": "Mittal",
+    "email": "yash.mittal@contactappdb.com",
+    "notes": "Yash is a product manager specializing in product lifecycle management."
+  },
+  {
+    "id": "29",
+    "firstName": "Riddhi",
+    "lastName": "Joshi",
+    "email": "riddhi.joshi@contactappdb.com",
+    "notes": "Riddhi is a software engineer with a focus on cloud computing."
+  },
+  {
+    "id": "30",
+    "firstName": "Pranav",
+    "lastName": "Shah",
+    "email": "pranav.shah@contactappdb.com",
+    "notes": "Pranav is a systems analyst experienced in enterprise-level software development."
+  }
+]

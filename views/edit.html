@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modify Contact</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 28px;
+      color: #333333;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    label {
+      font-weight: bold;
+      color: #555555;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #0077cc;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #005599;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Modify Contact</h1>
+    <form id="modifyContactForm" action="#" method="POST">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="5"></textarea>
+      </div>
+      <button type="submit">Apply Changes</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modifyContactForm = document.getElementById('modifyContactForm');
+      const contactId = window.location.pathname.split('/').pop(); // Extract contact ID from URL
+      fetch(`/contactsData`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch contact information');
+          }
+          return response.json();
+        })
+        .then(contacts => {
+          const contact = contacts.find(c => c.id === contactId);
+          if (!contact) {
+            throw new Error('Contact not found');
+          }
+          document.getElementById('firstName').value = contact.firstName || '';
+          document.getElementById('lastName').value = contact.lastName || '';
+          document.getElementById('email').value = contact.email || '';
+          document.getElementById('notes').value = contact.notes || '';
+          modifyContactForm.action = `/edit-contact/${contact.id}`;
+        })
+        .catch(error => {
+          console.error('Error fetching contact:', error);
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Contacts</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #343a40;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .btn {
+      padding: 8px 16px;
+      margin-right: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: 1px solid #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border: 1px solid #0056b3;
+    }
+    .btn-info {
+      background-color: #17a2b8;
+      color: #fff;
+      border: 1px solid #17a2b8;
+    }
+    .btn-info:hover {
+      background-color: #117a8b;
+      border: 1px solid #117a8b;
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+      border: 1px solid #ffc107;
+    }
+    .btn-warning:hover {
+      background-color: #d39e00;
+      border: 1px solid #d39e00;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      color: #fff;
+      border: 1px solid #dc3545;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+      border: 1px solid #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>All Contacts</h1>
+    <table id="contactsTable" class="table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <a href="/create-contact" class="btn btn-primary">Create New Contact</a>
+  </div>
+
+<script>
+  (async () => {
+    try {
+      const response = await fetch('/contactsData');
+      if (!response.ok) {
+        throw new Error('Failed to fetch contacts');
+      }
+      const contacts = await response.json();
+      const contactsTable = document.getElementById('contactsTable');
+      const tbody = contactsTable.querySelector('tbody');
+
+      contacts.forEach(contact => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${contact.firstName}</td>
+          <td>${contact.lastName}</td>
+          <td>${contact.email || ''}</td>
+          <td>
+            <a href="/contacts/${contact.id}" class="btn btn-info">View</a>
+            <a href="/edit-contact/${contact.id}" class="btn btn-warning">Edit</a>
+            <button onclick="deleteContact('${contact.id}')" class="btn btn-danger">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+        row.style.opacity = 0; 
+        setTimeout(() => {
+          row.style.opacity = 1; 
+        }, 100);
+      });
+    } catch (error) {
+      console.error('Error fetching or displaying contacts:', error);
+    }
+  })();
+
+  // Delete a contact
+  async function deleteContact(id) {
+    try {
+      const response = await fetch(`/contacts/${id}`, { method: 'DELETE' });
+      if (!response.ok) {
+        throw new Error('Failed to delete contact');
+      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 500); 
+    } catch (error) {
+      console.error('Error deleting contact:', error);
+    }
+  }
+</script>
+
+</body>
+</html>
