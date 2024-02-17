@@ -46,6 +46,16 @@ To run this project on your local machine, follow these steps:
 During the development of this project, I learned how to create a NodeJS file system API and how to integrate middleware for request logging and data validation. I faced some challenges while implementing the edit functionality, particularly in updating the contact details and handling errors effectively. However, through debugging and referring to documentation, I managed to resolve these issues.
 
 Overall, I gained a deeper understanding of Node.js, Express.js, and handling CRUD operations in a web application.
+# Homepage
+![](https://github.com/jayanthkrishnakalavapudi/lab2/blob/main/images/homepage.png)
+# Contacts
+![](https://github.com/jayanthkrishnakalavapudi/lab2/blob/main/images/contacts.png)
+# Edit Existing Contacts
+![](https://github.com/jayanthkrishnakalavapudi/lab2/blob/main/images/modify.png)
+# View Individual contact
+![](https://github.com/jayanthkrishnakalavapudi/lab2/blob/main/images/view.png)
+# Create New Contact
+![](https://github.com/jayanthkrishnakalavapudi/lab2/blob/main/images/create.png)
 
 ## References
 
