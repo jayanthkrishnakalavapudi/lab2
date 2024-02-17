@@ -7,39 +7,57 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .container {
-      padding: 80px 0;
+      padding: 40px;
     }
     .contact-details-card {
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 10px;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
       padding: 40px;
+      max-width: 600px;
+      width: 100%;
     }
     .contact-details-card h1 {
       color: #333;
       font-size: 28px;
       margin-bottom: 30px;
+      text-align: center;
     }
     .contact-details-card p {
       font-size: 16px;
       color: #555;
+      margin-bottom: 15px;
     }
     .contact-details-card p strong {
       color: #007bff;
+    }
+    .error-message {
+      text-align: center;
+      color: #ff3333;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="contact-details-card">
           <h1>Contact Details</h1>
           <div id="contactDetails">
-                     </div>
+            <p>Loading...</p>
+          </div>
         </div>
       </div>
     </div>
@@ -52,25 +70,30 @@
         <p><strong>First Name:</strong> ${contact.firstName}</p>
         <p><strong>Last Name:</strong> ${contact.lastName}</p>
         <p><strong>Email:</strong> ${contact.email}</p>
-        <p><strong>Notes:</strong> ${contact.notes}</p>
+        <p><strong>Notes:</strong> ${contact.notes || 'N/A'}</p>
       `;
     }
 
     // Fetch contact details
     fetch('/contactsData') 
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch contact details');
+        }
+        return response.json();
+      })
       .then(contacts => {
         const contactId = window.location.pathname.split('/').pop();
         const contact = contacts.find(contact => contact.id === contactId);
         if (contact) {
           document.getElementById('contactDetails').innerHTML = renderContactDetails(contact);
         } else {
-          document.getElementById('contactDetails').innerHTML = '<p>Contact not found</p>';
+          throw new Error('Contact not found');
         }
       })
       .catch(error => {
         console.error('Error fetching contacts:', error);
-        document.getElementById('contactDetails').innerHTML = '<p>Error fetching contact details</p>';
+        document.getElementById('contactDetails').innerHTML = `<p class="error-message">${error.message}</p>`;
       });
   </script>
 </body>
