@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Database</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #F7FF00, #DB36A4);
+    }
+    .container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .jumbotron {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+    }
+    .jumbotron h1, .jumbotron p {
+      color: #333;
+    }
+    .card {
+      margin-top: 30px;
+      border: none;
+      background: none;
+    }
+    .card-header {
+      background-color: #333;
+      color: #fff;
+    }
+    .card-body, .card-footer {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    .card-footer {
+      border-radius: 0 0 20px 20px;
+    }
+    .card-title {
+      color: #333;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #F7FF00, #DB36A4);
+      border-color: transparent;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #DB36A4, #F7FF00);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to the Contact Database App</h1>
+      <p class="lead">This application allows you to manage your contacts easily.</p>
+      <hr class="my-4">
+      <p>Please use the navigation links to explore the functionality.</p>
+      <a class="btn btn-primary btn-lg" href="/contacts" role="button">View Contacts Database</a>
+    </div>
+
+    <div class="card text-center">
+      <div class="card-header">
+        About the App
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Contact Database</h5>
+        <p class="card-text">This app is built using Node.js and Express framework. It provides functionalities to manage contacts, including creating, editing, and deleting contacts.</p>
+        <a href="/contacts" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="card-footer text-muted">
+        Contact Database App
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

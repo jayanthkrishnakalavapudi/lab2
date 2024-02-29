@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Contact</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #FFB6C1, #87CEFA);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 500px;
+      margin: 30px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 32px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #FFB6C1, #87CEFA);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #87CEFA, #FFB6C1);
+    }
+    .error-message {
+      color: #ff3333;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Contact</h1>
+    <form id="addContactForm" action="/add-contact" method="POST">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
+        <div id="firstNameError" class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
+        <div id="lastNameError" class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email">
+        <div id="emailError" class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes:</label>
+        <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Contact</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('addContactForm');
+      form.addEventListener('submit', function(event) {
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+
+        let isValid = true;
+
+        if (firstName.value.trim() === '') {
+          document.getElementById('firstNameError').innerText = 'Please enter first name.';
+          isValid = false;
+        } else {
+          document.getElementById('firstNameError').innerText = '';
+        }
+
+        if (lastName.value.trim() === '') {
+          document.getElementById('lastNameError').innerText = 'Please enter last name.';
+          isValid = false;
+        } else {
+          document.getElementById('lastNameError').innerText = '';
+        }
+
+        if (email.value.trim() !== '' && !isValidEmail(email.value.trim())) {
+          document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+          isValid = false;
+        } else {
+          document.getElementById('emailError').innerText = '';
+        }
+
+        if (!isValid) {
+          event.preventDefault();
+        }
+      });
+
+      // Function to validate email
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+    });
+  </script>
+</body>
+</html>
